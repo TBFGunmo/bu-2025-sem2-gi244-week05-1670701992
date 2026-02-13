@@ -8,7 +8,7 @@ public class WaveController : MonoBehaviour
     private int enemySpawned = 0;
     private float nextSpawnTime = 0;
 
-    public Wave[] waveConfigs;
+    
 
     void Update()
     {
@@ -20,6 +20,21 @@ public class WaveController : MonoBehaviour
             nextSpawnTime += Time.time + currentWave.spawnInterval;
         }
     }
+
+    public void ChangeWave(Wave wave)
+    {
+        currentWave = wave;
+
+        enemySpawned = 0;
+        nextSpawnTime = Time.time;
+
+    }
+
+    public bool IsCompleted() 
+    {
+        return enemySpawned >= currentWave.enemyCount;
+    }
+
 
     void Spawn()
     {

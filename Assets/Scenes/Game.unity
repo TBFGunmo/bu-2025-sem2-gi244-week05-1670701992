@@ -504,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &535644973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +517,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a93b208350f4041a2cfbd4498cd2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveConfigs:
+  - enemyPrefabs:
+    - {fileID: 7591800460858037780, guid: 26fb4a3794983844781ecb674ca3474a, type: 3}
+    enemyCount: 5
+    spawnInterval: 1
+    waveInterval: 6
+  - enemyPrefabs:
+    - {fileID: 1928853565600797406, guid: b363fb019a12f764bb4223e7aeda6e6a, type: 3}
+    enemyCount: 2
+    spawnInterval: 1
+    waveInterval: 3
+  - enemyPrefabs:
+    - {fileID: 7591800460858037780, guid: 26fb4a3794983844781ecb674ca3474a, type: 3}
+    - {fileID: 1928853565600797406, guid: b363fb019a12f764bb4223e7aeda6e6a, type: 3}
+    - {fileID: 4856339743466158455, guid: ef7037a830d2bff408a015608b81e6e5, type: 3}
+    enemyCount: 20
+    spawnInterval: 0.5
+    waveInterval: 12
+  waveController: {fileID: 1888470326}
 --- !u!4 &535644974
 Transform:
   m_ObjectHideFlags: 0
@@ -708,7 +727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1005362561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1888470326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,12 +1084,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave:
-    enemyPrefabs:
-    - {fileID: 7591800460858037780, guid: 26fb4a3794983844781ecb674ca3474a, type: 3}
-    - {fileID: 1928853565600797406, guid: b363fb019a12f764bb4223e7aeda6e6a, type: 3}
-    enemyCount: 10
-    spawnInterval: 0.5
-    waveInterval: 7
+    enemyPrefabs: []
+    enemyCount: 0
+    spawnInterval: 0
+    waveInterval: 0
   spawnPoint:
   - {fileID: 1691507958}
   - {fileID: 1651771994}
