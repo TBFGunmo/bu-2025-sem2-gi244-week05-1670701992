@@ -7,6 +7,7 @@ public class WaveController : MonoBehaviour
 
     private int enemySpawned = 0;
     private float nextSpawnTime = 0;
+    private float checkEndSpawnTime = 0;
 
     
 
@@ -17,38 +18,47 @@ public class WaveController : MonoBehaviour
         {
             Spawn();
             enemySpawned++;
-            nextSpawnTime += Time.time + currentWave.spawnInterval;
+            nextSpawnTime = Time.time + currentWave.spawnInterval;
+
+            /*print(nextSpawnTime);
+            print(Time.time);
+            print(currentWave.spawnInterval);*/
         }
     }
 
     public void ChangeWave(Wave wave)
     {
+        print("change wave");
         currentWave = wave;
 
         enemySpawned = 0;
         nextSpawnTime = Time.time;
 
+        checkEndSpawnTime = Time.time + currentWave.waveInterval;
+
     }
 
     public bool IsCompleted() 
     {
-        return enemySpawned >= currentWave.enemyCount;
+        /*print(checkEndSpawnTime);
+        print(Time.time);*/
+        return (enemySpawned >= currentWave.enemyCount) && Time.time > checkEndSpawnTime;
     }
 
 
     void Spawn()
     {
-        //animalIndex = Random.Range(0, animalPrefabs.Length);
-        //Vector3 spawnPos = new(
-        //    Random.Range(-spawnRangeX, spawnRangeX),
-        //    transform.position.y,
-        //    transform.position.z
-        //);
-        //Instantiate(
-        //    animalPrefabs[animalIndex],
-        //    spawnPos,
-        //    animalPrefabs[animalIndex].transform.rotation
-        //);
+        /*animalIndex = Random.Range(0, animalPrefabs.Length);
+        Vector3 spawnPos = new(
+            Random.Range(-spawnRangeX, spawnRangeX),
+            transform.position.y,
+            transform.position.z
+        );
+        Instantiate(
+            animalPrefabs[animalIndex],
+            spawnPos,
+            animalPrefabs[animalIndex].transform.rotation
+        );*/
 
         int enemyIndex = Random.Range(0, currentWave.enemyPrefabs.Length);
         int spawnPointIndex = Random.Range(0, spawnPoint.Length);
@@ -57,6 +67,9 @@ public class WaveController : MonoBehaviour
             currentWave.enemyPrefabs[enemyIndex], 
             spawnPoint[spawnPointIndex].position, 
             currentWave.enemyPrefabs[enemyIndex].transform.rotation);
+
+        print("spawn" + currentWave.enemyPrefabs[enemyIndex] + Time.time);
+
     }
 
 }
