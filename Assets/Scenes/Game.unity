@@ -522,19 +522,19 @@ MonoBehaviour:
     - {fileID: 7591800460858037780, guid: 26fb4a3794983844781ecb674ca3474a, type: 3}
     enemyCount: 5
     spawnInterval: 1
-    waveInterval: 6
+    waveInterval: 20
   - enemyPrefabs:
     - {fileID: 1928853565600797406, guid: b363fb019a12f764bb4223e7aeda6e6a, type: 3}
     enemyCount: 2
     spawnInterval: 1
-    waveInterval: 3
+    waveInterval: 10
   - enemyPrefabs:
     - {fileID: 7591800460858037780, guid: 26fb4a3794983844781ecb674ca3474a, type: 3}
     - {fileID: 1928853565600797406, guid: b363fb019a12f764bb4223e7aeda6e6a, type: 3}
     - {fileID: 4856339743466158455, guid: ef7037a830d2bff408a015608b81e6e5, type: 3}
-    enemyCount: 20
+    enemyCount: 10
     spawnInterval: 0.5
-    waveInterval: 12
+    waveInterval: 8
   waveController: {fileID: 1888470326}
 --- !u!4 &535644974
 Transform:
